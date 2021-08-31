@@ -7,7 +7,7 @@ If  is even and in the inclusive 6 range of 20  to , print Weird
 If  is even and greater than 20, print Not Weird """
 
 
-n = int(input("Write a number "))
+n = int(input("Write a number: "))
 
 if n % 2 == 0 and 2 <= n <= 5:
     print("Not Weird")
