@@ -1,0 +1,32 @@
+Building Your Application
+
+1. mkdir django_projects                 #Create folder of the project
+2. cd django_projects                    #Access the folder
+3. django-admin startproject mysite      #Create project 
+4. cd mysite                             #Access the folder the project
+5. python3 manage.py check               #Check if the changes are ok
+6. python3 manage.py startapp polls      #Add Application
+7. python3 manage.py createsuperuser     #Create username
+8. python3 manage.py runserver
+9. ifconfig                          #Show IP wlp2s0: inet 192.168.1.27 (http://192.168.1.27:8000/)
+
+makemigrations
+
+1.python3 manage.py makemigrations             #Evalue model changes
+2.python3 manage.py migrate                    #Run model change
+3.python3 manage.py shell                      #Open terminal whit access to the project models
+
+##### Read django at ipython #####
+
+## have to find out that this is from the cousera's batch exercise##
+
+python3 manage.py shell
+from scripts.many_load import run
+from unesco import models as m
+
+m.Site
+m.Site()
+sites = m.Site.objects.all()
+s = sites[0]
+s.name
+sites.filter(

@@ -1,0 +1,64 @@
+git clone repository         #Clone in repository
+git status                   #Show file changes
+git pull origin master       #Update branch master from cloud and download it  
+git push origin master       #Load branch master to cloud 
+git fetch origin feature/SI-191-mejoras-si   #Update branch from load
+
+
+
+git checkout  name           #Move to branch name
+git checkout -b name         #Create a branch name
+
+git diff path/to/file        #Show changes in specific file  
+git checkout path/to/file    #Delete changes on file
+git add path/to/file         #Add changes on file 
+git commit -m "message #71"  #Save added changes with message and issue number (#71)
+git log                      #Show commit
+git commit --amend :
+    CTR + O
+    Enter
+    CTR + X                  #Make a change but with the commid above
+git push origin feature/SI-191-mejoras-si -f  #-f force
+            
+
+
+git push origin feature/SI-191-mejoras-si
+git pull origin feature/SI-191-mejoras-si
+
+##### steps to rename the repository #####
+
+git remote -v
+ssh -T git@github.com
+git remote remove origin 
+e add origin git@github.com:SebastVR/mysite.git #git@github.com:SebastVR/mysite.git (GitHUb)
+git remote -v
+
+##### steps clone repository #####
+## For localhost SSH git@github.com:SebastVR/batch.git ##
+## For pythonanywhere.com HTTPS https://github.com/SebastVR/batch.git ##
+
+mv batch/ batch2/
+git clone git@github.com:SebastVR/batch.git
+mv  batch2/* batch
+rm -r batch2
+
+Pass for clone repository
+
+1. Create repository in GitHUb
+2. git clone repository 
+3. git remote -v 
+4. git remote remove origin 
+5. git remote add origin git@github.com:SebastVR/hackerrank.git
+
+
+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 
+
+
+pull request GitHUb
+
+
+
+
+
+
+git@github.com:piragua-team/piragua.git

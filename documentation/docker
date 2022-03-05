@@ -1,0 +1,118 @@
+
+##### Docker #####
+sudo docker-compose up djangoapi                              #Run service
+sudo docker-compose down -v                                   #Down service  
+sudo docker-compose exec djangoapi python manage.py ....      #Ejecute command django
+sudo docker-compose exec djangoapi python manage.py hidrobiologico
+docker-compose exec djangoapi python manage.py makemigrations monitoreos 
+docker-compose exec djangoapi python manage.py migrate monitoreos 
+sudo chown $USER:$USER -R djangoapi/formularios/
+sudo docker-compose exec postgres psql -U postgres postgres   #Connect to user postgres (-U) BD postgres
+docker-compose build djangoapi                                #Use after a dependency (requirements)
+docker-compose exec djangoapi python manage.py shell
+
+
+docker-compose up nginx
+python3 manage.py startapp polls   
+##### End Docker #####
+ekhJhWe,4n84#,e   
+
+python3 manage.py startapp polls 
+
+sudo rm djangoapi/hidrobiologico/migrations/0001_initial.py 
+
+docker-compose exec postgres psql -U postgres postgres
+postgres=# drop table fisicoquimicos;
+DROP TABLE
+postgres=# drop table campannas_fisicoquimico;
+DROP TABLE
+postgres=# drop table parametros_fisicoquimicos;
+DROP TABLE
+postgres=# select * from django_migrations;
+ id |       app       |                   name                   |            applied            
+----+-----------------+------------------------------------------+-------------------------------
+  1 | contenttypes    | 0001_initial                             | 2021-03-11 03:54:30.009995+00
+  2 | auth            | 0001_initial                             | 2021-03-11 03:54:30.139196+00
+  3 | admin           | 0001_initial                             | 2021-03-11 03:54:30.215833+00
+  4 | admin           | 0002_logentry_remove_auto_add            | 2021-03-11 03:54:30.26478+00
+  5 | admin           | 0003_logentry_add_action_flag_choices    | 2021-03-11 03:54:30.306248+00
+  6 | contenttypes    | 0002_remove_content_type_name            | 2021-03-11 03:54:30.731066+00
+  7 | auth            | 0002_alter_permission_name_max_length    | 2021-03-11 03:54:30.767365+00
+  8 | auth            | 0003_alter_user_email_max_length         | 2021-03-11 03:54:30.807553+00
+  9 | auth            | 0004_alter_user_username_opts            | 2021-03-11 03:54:30.845972+00
+ 10 | auth            | 0005_alter_user_last_login_null          | 2021-03-11 03:54:30.884054+00
+ 11 | auth            | 0006_require_contenttypes_0002           | 2021-03-11 03:54:30.886204+00
+ 12 | auth            | 0007_alter_validators_add_error_messages | 2021-03-11 03:54:30.925316+00
+ 13 | auth            | 0008_alter_user_username_max_length      | 2021-03-11 03:54:30.970995+00
+ 14 | auth            | 0009_alter_user_last_name_max_length     | 2021-03-11 03:54:31.009591+00
+ 15 | auth            | 0010_alter_group_name_max_length         | 2021-03-11 03:54:31.050205+00
+ 16 | auth            | 0011_update_proxy_permissions            | 2021-03-11 03:54:31.286413+00
+ 17 | sessions        | 0001_initial                             | 2021-03-11 03:54:31.43109+00
+ 20 | core            | 0001_initial                             | 2021-03-11 03:54:54.430492+00
+ 21 | red             | 0001_initial                             | 2021-03-11 03:54:54.931215+00
+ 22 | instrumentacion | 0001_initial                             | 2021-03-11 03:54:55.197802+00
+ 23 | monitoreo       | 0001_initial                             | 2021-03-11 03:55:03.139328+00
+ 24 | aire            | 0001_initial                             | 2021-03-11 03:55:10.649764+00
+ 25 | aire            | 0002_auto_20210728_2238                  | 2021-07-28 22:38:47.070594+00
+ 26 | red             | 0002_auto_20210728_2238                  | 2021-07-28 22:38:47.490722+00
+ 27 | aire            | 0003_auto_20210921_0346                  | 2021-09-21 03:47:50.577397+00
+ 28 | core            | 0002_auto_20211020_0406                  | 2021-11-02 02:38:46.422507+00
+ 29 | core            | 0003_auto_20211023_1938                  | 2021-11-02 02:38:47.341175+00
+ 30 | monitoreos      | 0001_initial                             | 2021-11-02 02:40:10.877486+00
+ 31 | hidrobiologico  | 0001_initial                             | 2021-11-08 02:06:26.040547+00
+ 32 | monitoreos      | 0002_auto_20211108_0203                  | 2021-11-08 20:25:28.801129+00
+ 33 | monitoreos      | 0003_auto_20211108_1602                  | 2021-11-08 20:25:30.858015+00
+ 34 | fisicoquimico   | 0001_initial                             | 2021-11-08 20:25:31.880222+00
+ 35 | monitoreos      | 0004_auto_20211109_0249                  | 2021-11-09 02:50:18.909143+00
+(33 rows)
+postgres=# delete from django_migrations where app = 'fisicoquimico';
+DELETE 1
+postgres=# \q
+
+postgres=# delete from django_migrations where app in ('monitoreos', 'fisicoquimico', 'hidrobiologico');
+DELETE 8
+postgres=# select * from django_migrations;
+
+ id |       app       |                   name                   |            applied            
+----+-----------------+------------------------------------------+-------------------------------
+  1 | contenttypes    | 0001_initial                             | 2021-03-11 03:54:30.009995+00
+  2 | auth            | 0001_initial                             | 2021-03-11 03:54:30.139196+00
+  3 | admin           | 0001_initial                             | 2021-03-11 03:54:30.215833+00
+  4 | admin           | 0002_logentry_remove_auto_add            | 2021-03-11 03:54:30.26478+00
+  5 | admin           | 0003_logentry_add_action_flag_choices    | 2021-03-11 03:54:30.306248+00
+  6 | contenttypes    | 0002_remove_content_type_name            | 2021-03-11 03:54:30.731066+00
+  7 | auth            | 0002_alter_permission_name_max_length    | 2021-03-11 03:54:30.767365+00
+  8 | auth            | 0003_alter_user_email_max_length         | 2021-03-11 03:54:30.807553+00
+  9 | auth            | 0004_alter_user_username_opts            | 2021-03-11 03:54:30.845972+00
+ 10 | auth            | 0005_alter_user_last_login_null          | 2021-03-11 03:54:30.884054+00
+ 11 | auth            | 0006_require_contenttypes_0002           | 2021-03-11 03:54:30.886204+00
+ 12 | auth            | 0007_alter_validators_add_error_messages | 2021-03-11 03:54:30.925316+00
+ 13 | auth            | 0008_alter_user_username_max_length      | 2021-03-11 03:54:30.970995+00
+ 14 | auth            | 0009_alter_user_last_name_max_length     | 2021-03-11 03:54:31.009591+00
+ 15 | auth            | 0010_alter_group_name_max_length         | 2021-03-11 03:54:31.050205+00
+ 16 | auth            | 0011_update_proxy_permissions            | 2021-03-11 03:54:31.286413+00
+ 17 | sessions        | 0001_initial                             | 2021-03-11 03:54:31.43109+00
+ 20 | core            | 0001_initial                             | 2021-03-11 03:54:54.430492+00
+ 21 | red             | 0001_initial                             | 2021-03-11 03:54:54.931215+00
+ 22 | instrumentacion | 0001_initial                             | 2021-03-11 03:54:55.197802+00
+ 23 | monitoreo       | 0001_initial                             | 2021-03-11 03:55:03.139328+00
+ 24 | aire            | 0001_initial                             | 2021-03-11 03:55:10.649764+00
+ 25 | aire            | 0002_auto_20210728_2238                  | 2021-07-28 22:38:47.070594+00
+ 26 | red             | 0002_auto_20210728_2238                  | 2021-07-28 22:38:47.490722+00
+ 27 | aire            | 0003_auto_20210921_0346                  | 2021-09-21 03:47:50.577397+00
+ 28 | core            | 0002_auto_20211020_0406                  | 2021-11-02 02:38:46.422507+00
+ 29 | core            | 0003_auto_20211023_1938                  | 2021-11-02 02:38:47.341175+00
+(27 rows)
+postgres=# \q
+
+
+
+docker-compose exec djangoapi python manage.py collectstatic --no-input
+git pull origin feature/formualrios 
+docker-compose exec djangoapi python manage.py shell
+exec(open('fisicoquimico/populate/populate_parametros.py').read())
+main()
+exec(open('fisicoquimico/populate/populate_monitoreos.py').read())
+main()
+
+

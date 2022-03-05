@@ -1,0 +1,82 @@
+Observaciones urls monitoreo
+
+Monitoreo 
+urls.py 
+
+#------------------------------------
+-path('form', views.monitoreoNewForm, name='newForm'),
+http://0.0.0.0:8000/api/v1/form
+    Exception Type: AttributeError at /api/v1/form
+    Exception Value:'PuntoMonitoreoAbastecedora' object has no attribute 'fuente_hidrica'
+Conclusión: En el archivo models.py de la aplicacion monitoreo la clase 'PuntoMonitoreoAbastecedora' no tiene
+el atributo 'fuente_hidrica'
+
+
+#------------------------------------
+-path('update/<str:monitoreo_id>/form', views.monitoreoUpdateForm, name='updateForm'),
+    Exception Type:	FieldError
+    Exception Value: Cannot resolve keyword 'punto_monitoreo' into field. Choices are: acueducto, acueducto_id, agricultura, agricultura_descripcion, aprobado, area_protegida, area_protegida_descripcion, cargo1, cargo2, cargo_revisor, descripcion_entorno, eliminado, fecha, fecha_entrega, id, importancia_zonal, mineria, mineria_descripcion, observacion, otro, otro_descripcion, pecuario, pecuario_descripcion, punto_monitoreo_campanna, punto_monitoreo_campanna_id, recreacion, recreacion_descripcion, reforestacion, reforestacion_descripcion, responsable1, responsable2, revisor, riego, riego_descripcion, riesgo_acceso, riesgo_acceso_descripcion, sin_intervencion, sin_intervencion_descripcion, vertimiento, vertimiento_descripcion, zona_conservacion, zona_conservacion_descripcio
+Conclusión: Se esta haciendo una busqueda de objetos de tipo PuntoMonitoreoAbastecedora con el parametro monitoreo_id el cual no es un 
+    atributo de esta clase 
+
+
+#------------------------------------
+-path("save", views.monitoreoSave, name="save"),
+http://0.0.0.0:8000/api/v1/save
+    MultiValueDictKeyError at /api/v1/save
+    'territorial'
+Conclsion: se llevo http://0.0.0.0:8000/api/v1/save a Postman en las KEY: territorial, municipio, fuente_hidrica, acueducto
+con VALUE: 4, 34, 34 y presento el siguiente AttributeError.
+    Exception Type:	ValidationError
+    Exception Value:	["'34' no es un UUID válido."]
+Pregunta: Donde mirar el id de acueducto    
+
+
+#------------------------------------
+-path("save", views.monitoreoSave, name="save"),
+http://0.0.0.0:8000/api/v1/update
+    MultiValueDictKeyError at /api/v1/update
+    'territorial'
+Conclsion: se llevo http://0.0.0.0:8000/api/v1/save a Postman en las KEY: territorial, municipio, fuente_hidrica, acueducto, punto_monitoreo_abastecedora
+con VALUE: 4, 34, 34 y presento el siguiente AttributeError.
+    Exception Type:	ValidationError
+    Exception Value:	["'34' no es un UUID válido."]
+Pregunta: Donde mirar el id de acueducto y punto_monitoreo_abastecedora
+
+
+#------------------------------------
+path("aprobar/<str:monitoreo_id>", views.saveAprobado),
+    Devuelve un J.Son con el enunciado {"status": true}
+
+
+#------------------------------------
+path("delete/<str:monitoreo_id>/", views.monitoreoDelete, name="delete"),
+    Exception Type: TemplateDoesNotExist
+    Exception Value: main/base.html
+Conclusión: El archivo index.html no renderiza
+
+
+#------------------------------------
+path("view/<str:monitoreo_id>/form", views.monitoreoViewForm, name="viewForm"),
+    Exception Type:	FieldError
+    Exception Value:Cannot resolve keyword 'punto_monitoreo' into field. Choices are: descripcion, fecha_resultado, id, metodo_medicion, parametro_fisicoquimico, parametro_fisicoquimico_id, punto_monitoreo_campanna, punto_monitoreo_campanna_id, resultado, resultado_centro, resultado_derecho, resultado_izquierdo, signo
+Conclusión: Se esta haciendo un filtro de objetos de tipo Fisicoquimico con el parametro monitoreo_id el cual no es un 
+    atributo de esta clase 
+
+
+
+#------------------------------------
+-path("filtroForm", views.monitoreoBuscadorForm, name="buscadorForm"),
+    Devuelve un html o campos para filtrar de Territorial, Municipio, Año, Proyecto, Codigo de la fuente:,
+    Donde lo unicos campos que se tienen filtro son Territorial y Proyecto.
+
+
+#------------------------------------
+path("monitoreoFilter", views.monitoreoFilter, name="monitoreoFilter"),
+    Devuelve un html en forma de columna con los campos de #Año, Campaña, Fecha, Codigo, Fuente, Municipio,
+    Latitud, Longitud, Altitud, Proyecto, Lab/Mod/Elim
+
+
+http://0.0.0.0:8000/administrador/monitoreo/formulario_fisicoquimico/?codigo=NECR04
+
+labels = {"concesion_agua": "Tiene concesión de aguas superficiales (Si/No):"}

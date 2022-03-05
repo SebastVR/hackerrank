@@ -1,0 +1,9 @@
+1. ls 
+2. cd
+3. Ctrl + r             #Seach commad old the used from terminal 
+4. mkdir home           #Create new folder
+5. touch pytho.py       #Create file with extension .py-.html-.txt-.css-,js
+6. cp -r /home/sebastian/Downloads/whc-sites-2018-clean.csv .    #Copy in current path
+7. cp -r /home/sebastian/Downloads/whc-sites-2018-clean.csv ../
+8. wget https://www.dj4e.com/assn/dj4e_load/whc-sites-2018-clean.csv #Download file the WEB
+9. Ctrl + Shift + A     #Comment the code 
