@@ -10,10 +10,12 @@ sudo chown $USER:$USER -R djangoapi/formularios/
 sudo docker-compose exec postgres psql -U postgres postgres   #Connect to user postgres (-U) BD postgres
 docker-compose build djangoapi                                #Use after a dependency (requirements)
 docker-compose exec djangoapi python manage.py shell
+docker-compose exec djangoapi python manage.py createsuperuser     #Create username
 
 
 docker-compose up nginx
 python3 manage.py startapp polls   
+
 ##### End Docker #####
 ekhJhWe,4n84#,e   
 
