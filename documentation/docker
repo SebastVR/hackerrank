@@ -16,6 +16,12 @@ docker-compose exec djangoapi python manage.py createsuperuser     #Create usern
 docker-compose up nginx
 python3 manage.py startapp polls   
 
+docker ps                          # Look at the ports used
+docker stop 48d696167bba           # Deleted ports used
+docker system prune --volumes      
+docker-compose up nginx
+
+
 ##### End Docker #####
 ekhJhWe,4n84#,e   
 
