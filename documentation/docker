@@ -11,7 +11,7 @@ sudo docker-compose exec postgres psql -U postgres postgres   #Connect to user p
 docker-compose build djangoapi                                #Use after a dependency (requirements)
 docker-compose exec djangoapi python manage.py shell
 docker-compose exec djangoapi python manage.py createsuperuser     #Create username
-docker-compose exec python manage.py startapp subterranea
+docker-compose exec djangoapi python manage.py startapp subterranea
 
 docker-compose up nginx
 
