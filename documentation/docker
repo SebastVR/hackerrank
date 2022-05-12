@@ -18,7 +18,7 @@ docker-compose up nginx
 
 docker ps                          # Look at the ports used
 docker stop 48d696167bba           # Deleted ports used
-docker system prune --volumes      
+docker system prune --volumes      #      
 docker-compose up nginx
 
 
