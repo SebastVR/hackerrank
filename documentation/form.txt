@@ -1,0 +1,41 @@
+HTML forms
+
+<input>             #Elements to achieve these effects.
+<form>...</form>    #A form is a collection of elements inside
+
+A form must specify two things:
+    -where: the URL to which the data corresponding to the user’s input should be returned
+    -how: the HTTP method the data should be returned by
+
+Example:
+type="text"         #For the username    
+type="password"     #For the password
+type="submit"       #For the “Log in” button
+
+<form>’s action attribute - /admin/  #It also tells the browser that the form data should be sent to the URL specified 
+post                #HTTP mechanism specified 
+
+GETy POST
+    -GET and POST are the only HTTP methods to use when dealing with forms.
+    -Example: A request that makes changes to the database, it must use POST. GET
+
+POST: 
+    -Group the form data
+    -Encrypts the data for transmission on the server
+    -Get a reply 
+
+GET:
+    -Groups the submitted data into a string and uses it to compose a URL
+    -The URL contains the address to which the data should be sent, 
+     as well as the keys and values of the data.
+
+The Django Form class
+    -Form: It is a model that describes the logical structure of an object, 
+           describes a form and determines how it works and appears
+
+    -<ModelForm>: Assign the fields of a model class to <input> through a Form 
+
+    -DateField: Handling data types
+    -FileField: Handling data types
+
+

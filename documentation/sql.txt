@@ -1,0 +1,43 @@
+##### Create a table sqlite3 #####
+$ cd ~
+$ sqlite3 pitch.sqlite3
+SQLite version 3.24.0 2018-06-04 14:10:15
+Enter ".help" for usage hints.
+sqlite>
+
+sqlite> .help
+sqlite> .tables                                              #Show name of the table
+sqlite> .schema Ages                                         #Show name of the schema
+sqlite> SELECT * FROM Ages;                                  #Show name of the values
+sqlite> DELETE FROM Ages WHERE age>27;                       #Delete the values 
+sqlite> UPDATE Ages SET name "Sebastian" WHERE age=27;       #Repalce el INTO agree the VALUES
+sqlite> SELECT hex(name || age) AS X FROM Ages ORDER BY X;
+sqlite> .quit                                                #Quit the sql
+
+sqlite>CREATE TABLE Ages (                                      
+  id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
+  name VARCHAR(128), 
+  age INTEGER
+);
+
+sqlite>DELETE FROM Ages;
+INSERT INTO Ages (name, age) VALUES ('Nuala', 34);
+INSERT INTO Ages (name, age) VALUES ('Peni', 27);
+INSERT INTO Ages (name, age) VALUES ('Marlee', 22);
+INSERT INTO Ages (name, age) VALUES ('Likiesha', 27);
+
+##### End sqlite #####
+
+#####
+Resetting Your Database
+If the autograder complains that your file is somehow too big, or you have been changing your 
+models.py and your makemigrations is asking you how to convert existing columns, or you just want 
+to start with a fresh database, you can run the following commands.
+
+$ cd ~/django_projects/batch
+$ rm db.sqlite3
+$ rm */migrations/0*
+$ python3 manage.py makemigrations
+$ python3 manage.py migrate
+$ python3 manage.py runscript many_load
+#####
