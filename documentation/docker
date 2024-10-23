@@ -1,5 +1,6 @@
 
 ##### Docker #####
+sudo docker-compose exec djangoap startproject mysite
 sudo docker-compose up djangoapi                              #Run service
 sudo docker-compose down -v                                   #Down service  
 sudo docker-compose exec djangoapi python manage.py ....      #Ejecute command django
